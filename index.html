@@ -6,8 +6,8 @@
     <title>Quizzes do Neymar - Teste seus conhecimentos!</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 20px;
             color: #333;
@@ -15,151 +15,74 @@
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
-            color: #008000;
+            color: #1e8449; /* Verde mais escuro */
+            margin-bottom: 10px;
+        }
+        p.intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-style: italic;
         }
         h2 {
-            border-bottom: 2px solid #ddd;
+            color: #0d6e38;
+            border-bottom: 3px solid #1e8449;
             padding-bottom: 10px;
-            color: #006400;
+            margin-top: 40px;
         }
-        .quiz-section {
-            margin-bottom: 30px;
+        .question-block {
+            margin-bottom: 25px;
         }
         .question {
             font-weight: bold;
-            margin-top: 20px;
+            font-size: 1.1em;
+            margin-bottom: 15px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        .answers-button {
-            background-color: #008000;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
+        .options label {
+            display: block;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .options label:hover {
+            background-color: #f1f1f1;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .verify-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #1e8449;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
-        .answers-button:hover {
-            background-color: #006400;
+        .verify-button:hover {
+            background-color: #0d6e38;
         }
-        .answers {
-            margin-top: 15px;
+        .feedback {
+            margin-top: 20px;
             padding: 15px;
-            background-color: #e9f5e9;
-            border-left: 5px solid #008000;
-            display: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none; /* Inicia oculto */
         }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h1>Quizzes do Neymar - Teste seus conhecimentos!</h1>
-        <p>
-            Bem-vindo(a) à página definitiva para todos os fãs de Neymar Jr.! Acha que sabe tudo sobre o craque brasileiro? Desafie seus amigos e descubra quem é o verdadeiro especialista na carreira, vida e curiosidades do jogador.
-        </p>
-
-        <hr>
-
-        <div class="quiz-section">
-            <h2>Quiz 1: A Trajetória de um Craque</h2>
-
-            <p class="question">1. Em que ano Neymar fez sua estreia como profissional pelo Santos Futebol Clube?</p>
-            <ul>
-                <li>a) 2008</li>
-                <li>b) 2009</li>
-                <li>c) 2010</li>
-                <li>d) 2011</li>
-            </ul>
-
-            <p class="question">2. Qual foi o primeiro clube europeu que Neymar defendeu?</p>
-            <ul>
-                <li>a) Real Madrid</li>
-                <li>b) Paris Saint-Germain</li>
-                <li>c) Barcelona</li>
-                <li>d) Chelsea</li>
-            </ul>
-
-            <button class="answers-button" onclick="toggleAnswers('answers1')">Ver Respostas</button>
-            <div id="answers1" class="answers">
-                <p>1. **b) 2009**</p>
-                <p>2. **c) Barcelona**</p>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="quiz-section">
-            <h2>Quiz 2: Curiosidades e Conquistas</h2>
-
-            <p class="question">1. Qual foi o prêmio Puskás, de gol mais bonito do ano, que Neymar ganhou?</p>
-            <ul>
-                <li>a) 2010</li>
-                <li>b) 2011</li>
-                <li>c) 2012</li>
-                <li>d) 2013</li>
-            </ul>
-
-            <p class="question">2. Qual foi o valor da transferência de Neymar do Barcelona para o PSG, que se tornou a mais cara da história?</p>
-            <ul>
-                <li>a) 180 milhões de euros</li>
-                <li>b) 222 milhões de euros</li>
-                <li>c) 250 milhões de euros</li>
-                <li>d) 280 milhões de euros</li>
-            </ul>
-
-            <button class="answers-button" onclick="toggleAnswers('answers2')">Ver Respostas</button>
-            <div id="answers2" class="answers">
-                <p>1. **b) 2011**</p>
-                <p>2. **b) 222 milhões de euros**</p>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="quiz-section">
-            <h2>Quiz 3: Neymar na Seleção</h2>
-
-            <p class="question">1. Em qual ano Neymar conquistou a medalha de ouro olímpica com a Seleção Brasileira?</p>
-            <ul>
-                <li>a) 2012</li>
-                <li>b) 2016</li>
-                <li>c) 2020</li>
-                <li>d) 2021</li>
-            </ul>
-
-            <p class="question">2. Qual camisa Neymar geralmente usa na Seleção Brasileira?</p>
-            <ul>
-                <li>a) 7</li>
-                <li>b) 9</li>
-                <li>c) 10</li>
-                <li>d) 11</li>
-            </ul>
-
-            <button class="answers-button" onclick="toggleAnswers('answers3')">Ver Respostas</button>
-            <div id="answers3" class="answers">
-                <p>1. **b) 2016**</p>
-                <p>2. **c) 10**</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function toggleAnswers(id) {
-            const answersDiv = document.getElementById(id);
-            if (
+        .
