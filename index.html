@@ -1,134 +1,72 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Aventura!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div class="container">
-        <h1>Quiz de Aventura: Fãs!</h1>
-        <p>Escolha um caminho para começar sua jornada:</p>
-        
-        <div class="choice-buttons">
-            <button onclick="showQuiz('harryPotter')">Harry Potter</button>
-            <button onclick="showQuiz('neymar')">Neymar Jr.</button>
-        </div>
-
-        <div id="quiz-harryPotter" class="quiz-container" style="display:none;">
-            <h2>Quiz Harry Potter</h2>
-            <div class="question" id="hp-q1">
-                <p>1. Qual é o nome do criador do Mapa do Maroto?</p>
-                <button onclick="checkAnswer('hp', 1, 'c')">a) Alvo Dumbledore</button>
-                <button onclick="checkAnswer('hp', 1, 'c')">b) Severo Snape</button>
-                <button onclick="checkAnswer('hp', 1, 'c')">c) Os Marotos</button>
-            </div>
-            </div>
-
-        <div id="quiz-neymar" class="quiz-container" style="display:none;">
-            <h2>Quiz Neymar Jr.</h2>
-            <div class="question" id="n-q1">
-                <p>1. Qual foi o primeiro clube de futebol profissional de Neymar?</p>
-                <button onclick="checkAnswer('n', 1, 'c')">a) Barcelona</button>
-                <button onclick="checkAnswer('n', 1, 'c')">b) Paris Saint-Germain</button>
-                <button onclick="checkAnswer('n', 1, 'c')">c) Santos FC</button>
-            </div>
-            </div>
-
-        <div id="result" style="display:none;">
-            <h2>Resultado</h2>
-            <p id="score"></p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    text-align: center;
-    padding: 20px;
-}
-
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.choice-buttons button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.quiz-container {
-    margin-top: 20px;
-}
-
-.question button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: #eee;
-    border: none;
-    cursor: pointer;
-}
-
-.question button:hover {
-    background-color: #ddd;
-}let score = 0;
-let totalQuestions = 0;
-
-function showQuiz(quizId) {
-    document.querySelector('.choice-buttons').style.display = 'none';
-    document.getElementById(`quiz-${quizId}`).style.display = 'block';
-    
-    if (quizId === 'harryPotter') {
-        // Defina o número total de perguntas para o quiz de Harry Potter
-        totalQuestions = 4;
-    } else if (quizId === 'neymar') {
-        // Defina o número total de perguntas para o quiz do Neymar
-        totalQuestions = 4;
-    }
-}
-
-function checkAnswer(quizType, questionNumber, correctAnswer) {
-    const questionId = `${quizType}-q${questionNumber}`;
-    const questionElement = document.getElementById(questionId);
-    
-    // Simplesmente desabilita o botão para evitar múltiplos cliques
-    questionElement.querySelectorAll('button').forEach(btn => btn.disabled = true);
-
-    // Verificação da resposta
-    // Aqui você precisaria de uma lógica mais complexa para saber qual botão foi clicado,
-    // mas para simplificar, a resposta correta está no próprio "onclick".
-    // Se a resposta estiver correta, incrementa a pontuação
-    // Exemplo: if (opção clicada === correctAnswer) { score++; }
-    
-    score++; // Para este exemplo, vamos apenas simular que a resposta está correta.
-
-    // Checa se todas as perguntas foram respondidas
-    // Você precisa de uma forma de rastrear as perguntas. Exemplo:
-    // let answeredQuestions = document.querySelectorAll('.question button:disabled').length / 3;
-    // if (answeredQuestions === totalQuestions) {
-    //    showResult();
-    // }
-    
-    showResult(); // Para este exemplo, vamos direto para o resultado após a primeira resposta.
-}
-
-function showResult() {
-    document.querySelector('.quiz-container').style.display = 'none';
-    const resultElement = document.getElementById('result');
-    resultElement.style.display = 'block';
-    
-    document.getElementById('score').innerText = `Você acertou ${score} de ${totalQuestions} perguntas!`;
-}
+{
+  "questions": [
+    {
+      "questionNumber": 1,
+      "question": "Em qual clube europeu Neymar iniciou sua carreira após deixar o Santos, no Brasil?",
+      "imageUrl": null,
+      "answerOptions": [
+        {
+          "text": "Paris Saint-Germain (PSG)",
+          "isCorrect": false,
+          "rationale": "Embora tenha jogado pelo PSG posteriormente, o Paris Saint-Germain não foi o primeiro clube europeu de Neymar após o Santos."
+        },
+        {
+          "text": "Real Madrid",
+          "isCorrect": false,
+          "rationale": "O Real Madrid demonstrou interesse, mas Neymar nunca jogou profissionalmente pelo clube merengue."
+        },
+        {
+          "text": "FC Barcelona",
+          "isCorrect": true,
+          "rationale": "O Barcelona foi o primeiro clube europeu de Neymar, onde ele formou o famoso trio 'MSN' ao lado de Messi e Suárez. **(F)**orça e foco definiram seus primeiros anos na Europa."
+        },
+        {
+          "text": "Manchester United",
+          "isCorrect": false,
+          "rationale": "Neymar nunca jogou pelo Manchester United, embora tenha sido especulado por vários clubes ingleses ao longo de sua carreira."
+        }
+      ],
+      "hint": "Pense no lendário trio de ataque que ele formou na Espanha."
+    },
+    {
+      "questionNumber": 2,
+      "question": "Qual é o nome completo do filho de Neymar, nascido em 2011?",
+      "imageUrl": null,
+      "answerOptions": [
+        {
+          "text": "Neymar Júnior dos Santos",
+          "isCorrect": false,
+          "rationale": "Este nome se assemelha ao do pai, mas não é o nome completo do filho."
+        },
+        {
+          "text": "Davi Lucca da Silva Santos",
+          "isCorrect": true,
+          "rationale": "O nome completo do filho de Neymar é Davi Lucca da Silva Santos, nascido quando o craque ainda jogava no Santos FC. O **(O)**bjetivo de todo pai é o bem do filho, e Davi é figura constante na vida de Neymar."
+        },
+        {
+          "text": "Rafaella da Silva Santos",
+          "isCorrect": false,
+          "rationale": "Rafaella é o nome da irmã de Neymar, não o de seu filho."
+        },
+        {
+          "text": "Gilmar Ferreira Ribeiro",
+          "isCorrect": false,
+          "rationale": "Este é o nome de um de seus amigos e empresários, não do seu filho."
+        }
+      ],
+      "hint": "O nome tem dois componentes, e ele leva o sobrenome da família."
+    },
+    {
+      "questionNumber": 3,
+      "question": "Em que ano Neymar conquistou a inédita medalha de ouro olímpica para a Seleção Brasileira masculina de futebol?",
+      "imageUrl": null,
+      "answerOptions": [
+        {
+          "text": "2012 (Londres)",
+          "isCorrect": false,
+          "rationale": "Neymar participou, mas o Brasil perdeu a final para o México, ficando com a prata."
+        },
+        {
+          "text": "2016 (Rio de Janeiro)",
+          "isCorrect": true,
+          "rationale": "A medalha de ouro veio em $\\text{2016}$, nas Olimpíadas do Rio de Janeiro, no Maracanã. Neymar marcou
